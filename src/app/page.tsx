@@ -54,6 +54,28 @@ const company = [
     href: "",
   },
 ];
+const statue = [
+  {
+    title: "Pending",
+    href: "",
+  },
+  {
+    title: "Cancelled",
+    href: "",
+  },
+  {
+    title: "Ongoing",
+    href: "",
+  },
+  {
+    title: "Waiting for Confirmation",
+    href: "",
+  },
+  {
+    title: "Completed",
+    href: "",
+  },
+];
 
 export default function Home() {
   return (
@@ -73,7 +95,7 @@ export default function Home() {
           </div>
           <NavigationMenu className="relative flex justify-start gap-4 list-none">
             <NavigationMenuItem className="relative mt-4">
-              <NavigationMenuTrigger className="border-[1px] border-stone-400 px-4 py-2">
+              <NavigationMenuTrigger className="border-[1px] border-stone-400 px-4 py-2 text-slate-700">
                 Object
               </NavigationMenuTrigger>
               <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
@@ -89,12 +111,28 @@ export default function Home() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem className="relative mt-4">
-              <NavigationMenuTrigger className="border-[1px] border-stone-400 px-4 py-2">
+              <NavigationMenuTrigger className="border-[1px] border-stone-400 px-4 py-2 text-slate-700">
                 Company
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
+              <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none">
                   {company.map((item) => (
+                    <ListItem
+                      key={item.title}
+                      title={item.title}
+                      href={item.href}
+                    ></ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="relative mt-4">
+              <NavigationMenuTrigger className="border-[1px] border-stone-400 px-4 py-2 text-slate-700">
+                Statue
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
+                <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none">
+                  {statue.map((item) => (
                     <ListItem
                       key={item.title}
                       title={item.title}
