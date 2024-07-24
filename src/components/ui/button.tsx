@@ -1,16 +1,22 @@
 // src/components/ui/button.tsx
 import React from "react";
 
-// Définir une interface pour les props du composant Button
-interface ButtonProps {
-  variant: string; // Par exemple: "link", "primary", "secondary"
-  children: React.ReactNode; // Contenu du bouton
-}
+export type ButtonProps = {
+  variant: "link" | "primary" | "secondary";
+  children: React.ReactNode;
+};
 
-// Définir le composant Button
 const Button: React.FC<ButtonProps> = ({ variant, children }) => {
-  // Définir les classes CSS en fonction de la variante
-  const classNames = `btn ${variant}`; // Assurez-vous que `btn` est une classe de base et `variant` ajoute des classes spécifiques
+  const baseClasses = "px-4 py-2 rounded transition-colors duration-200";
+  const variantClasses = {
+    link: " px-4 py-2 rounded transition-colors duration-200 text-stone-400 hover:text-slate-700 focus:text-slate-700 focus:underline focus:underline-offset-[14px] active:underline active:underline-offset-[14px]	",
+    primary:
+      " px-4 py-2 rounded transition-colors duration-200 text-stone-400 hover:text-slate-700 focus:text-slate-700 focus:underline focus:underline-offset-[14px] active:underline active:underline-offset-[14px]	",
+    secondary:
+      " px-4 py-2 rounded transition-colors duration-200 text-stone-400 hover:text-slate-700 focus:text-slate-700 focus:underline focus:underline-offset-[14px] active:underline active:underline-offset-[14px]	",
+  };
+
+  const classNames = `${baseClasses} ${variantClasses[variant]}`;
 
   return <button className={classNames}>{children}</button>;
 };

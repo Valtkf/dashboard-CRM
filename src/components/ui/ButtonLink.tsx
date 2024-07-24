@@ -1,11 +1,8 @@
 // src/components/ui/ButtonLink.tsx
 import React from "react";
-import Button from "@/components/ui/button";
+import Button, { ButtonProps } from "@/components/ui/button";
 
-interface ButtonLinkProps {
-  variant?: string; // Rendre variant optionnel
-  children?: React.ReactNode; // Rendre children optionnel
-}
+interface ButtonLinkProps extends Partial<ButtonProps> {}
 
 const ButtonLink: React.FC<ButtonLinkProps> = ({
   variant = "link", // Valeur par défaut pour variant
