@@ -10,73 +10,7 @@ import {
   NavigationMenu,
 } from "@radix-ui/react-navigation-menu";
 
-const object = [
-  {
-    title: "Product Design : Payment",
-    href: "",
-  },
-  {
-    title: "App Redesign : Onboard",
-    href: "",
-  },
-  {
-    title: "Pitch Deck B2B",
-    href: "",
-  },
-  {
-    title: "Mobil App, UX Audit",
-    href: "",
-  },
-  {
-    title: "Splash Screen Illustrator",
-    href: "",
-  },
-  {
-    title: "Features Add",
-    href: "",
-  },
-  {
-    title: "Brand Guidelines",
-    href: "",
-  },
-  {
-    title: "Landing page",
-    href: "",
-  },
-];
-
-const company = [
-  {
-    title: "Amazon",
-    href: "",
-  },
-  {
-    title: "Adobe LLC.",
-    href: "",
-  },
-];
-const statue = [
-  {
-    title: "Pending",
-    href: "",
-  },
-  {
-    title: "Cancelled",
-    href: "",
-  },
-  {
-    title: "Ongoing",
-    href: "",
-  },
-  {
-    title: "Waiting for Confirmation",
-    href: "",
-  },
-  {
-    title: "Completed",
-    href: "",
-  },
-];
+import { object, company, statue } from "./data";
 
 export default function Home() {
   return (
