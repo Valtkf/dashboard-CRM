@@ -4,6 +4,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/NavigationMenu";
 import Button from "@/components/ui/button";
+
 import {
   NavigationMenuItem,
   NavigationMenu,
@@ -81,6 +82,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen bg-slate-100 shadow-inner pr-4 pb-4">
       <div className="flex justify-start border-2 border-blue-500 w-1/3 h-screen mt-8"></div>
+
       <div className="border-[1px] border-stone-400 bg-white rounded-2xl h-screen w-2/3 mt-8">
         <div className="border-2 border-red-500 h-[151px] mt-8 mr-10 ml-10">
           <h1 className="font-inter font-medium text-4xl text-slate-700">
@@ -173,6 +175,7 @@ export default function Home() {
             </NavigationMenuItem>
           </NavigationMenu>
         </div>
+        <div className="m-4 border-2 border-pink-500 w-auto h-[560px]"></div>
       </div>
     </main>
   );
