@@ -4,15 +4,19 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/NavigationMenu";
 import Button from "@/components/ui/button";
-
 import {
   NavigationMenuItem,
   NavigationMenu,
 } from "@radix-ui/react-navigation-menu";
 
 import { object, company, statue } from "./data";
+import { DataTable } from "./payments/data-table";
+import { columns, Payment } from "./payments/columns";
+import { generatePaymentsData } from "../utils/dataGenerator";
 
-export default function Home() {
+export default async function Home() {
+  const data = await generatePaymentsData();
+
   return (
     <main className="flex min-h-screen bg-slate-100 shadow-inner pr-4 pb-4">
       <div className="flex justify-start border-2 border-blue-500 w-1/3 h-screen mt-8"></div>
@@ -109,7 +113,9 @@ export default function Home() {
             </NavigationMenuItem>
           </NavigationMenu>
         </div>
-        <div className="m-4 border-2 border-pink-500 w-auto h-[560px]"></div>
+        <div className="m-4 border-2 border-pink-500 w-auto h-[560px]">
+          <DataTable columns={columns} data={data} />
+        </div>
       </div>
     </main>
   );
