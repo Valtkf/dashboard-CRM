@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import ListItem from "@/components/ui/ListItem";
 import {
   NavigationMenuContent,
@@ -11,11 +14,29 @@ import {
 
 import { object, company, statue } from "./data";
 import { DataTable } from "./payments/data-table";
-import { columns, Payment } from "./payments/columns";
+import { createColumns, Payment } from "./payments/columns";
 import { generatePaymentsData } from "../utils/dataGenerator";
 
-export default async function Home() {
-  const data = await generatePaymentsData();
+export default function Home() {
+  const [data, setData] = useState<Payment[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const paymentData = await generatePaymentsData();
+      setData(paymentData);
+    }
+    fetchData();
+  }, []);
+
+  const handleAddChange = (id: string, value: boolean) => {
+    setData((prevData) =>
+      prevData.map((payment) =>
+        payment.id === id ? { ...payment, add: value } : payment
+      )
+    );
+  };
+
+  const columns = createColumns(handleAddChange);
 
   return (
     <main className="flex min-h-screen bg-slate-100 shadow-inner pr-4 pb-4">
@@ -100,7 +121,7 @@ export default async function Home() {
                 Statue
               </NavigationMenuTrigger>
               <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
-                <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none">
+                <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none ">
                   {statue.map((item) => (
                     <ListItem
                       key={item.title}

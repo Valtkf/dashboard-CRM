@@ -16,6 +16,8 @@ export async function generatePaymentsData(): Promise<Payment[]> {
       statue: "pending",
       company: "Amazon",
       object: getObjectTitle("Product Design : Payment"),
+      add: false,
+      date: "Dec.23",
     },
     {
       id: "729ed53f",
@@ -23,6 +25,8 @@ export async function generatePaymentsData(): Promise<Payment[]> {
       statue: "success",
       company: "Adobe LLC.",
       object: getObjectTitle("App Redesign : Onboard"),
+      add: false,
+      date: "Oct.23",
     },
     // Add more entries as needed...
   ];
