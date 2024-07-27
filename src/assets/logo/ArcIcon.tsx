@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ArcIcon() {
+export const ArcIcon = () => {
   return (
     <svg
       width="30"
@@ -32,4 +32,4 @@ export default function ArcIcon() {
       </defs>
     </svg>
   );
-}
+};

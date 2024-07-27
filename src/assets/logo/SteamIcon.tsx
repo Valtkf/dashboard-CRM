@@ -1,4 +1,4 @@
-export default function SteamIcon() {
+export const SteamIcon = () => {
   return (
     <svg
       width="30"
@@ -30,4 +30,4 @@ export default function SteamIcon() {
       </defs>
     </svg>
   );
-}
+};

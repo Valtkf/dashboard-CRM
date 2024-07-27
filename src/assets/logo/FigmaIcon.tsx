@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FigmaIcon() {
+export const FigmaIcon = () => {
   return (
     <svg
       width="30"
@@ -32,4 +32,4 @@ export default function FigmaIcon() {
       </defs>
     </svg>
   );
-}
+};

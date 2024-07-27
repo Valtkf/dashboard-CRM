@@ -1,4 +1,4 @@
-export default function StripeIcon() {
+export const StripeIcon = () => {
   return (
     <svg
       width="30"
@@ -30,4 +30,4 @@ export default function StripeIcon() {
       </defs>
     </svg>
   );
-}
+};

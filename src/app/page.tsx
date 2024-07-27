@@ -12,7 +12,7 @@ import {
   NavigationMenu,
 } from "@radix-ui/react-navigation-menu";
 
-import { object, company, statue } from "./data";
+import { companies, Statue } from "./data";
 import { DataTable } from "./payments/data-table";
 import { createColumns, Payment } from "./payments/columns";
 import { generatePaymentsData } from "../utils/dataGenerator";
@@ -31,12 +31,14 @@ export default function Home() {
   const handleAddChange = (id: string, value: boolean) => {
     setData((prevData) =>
       prevData.map((payment) =>
-        payment.id === id ? { ...payment, add: value } : payment
+        payment.id === id ? { ...payment, selected: value } : payment
       )
     );
   };
 
   const columns = createColumns(handleAddChange);
+
+  const statueOptions = Object.values(Statue); // Convert Enum to Array
 
   return (
     <main className="flex min-h-screen bg-slate-100 shadow-inner pr-4 pb-4">
@@ -90,13 +92,8 @@ export default function Home() {
               </NavigationMenuTrigger>
               <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
                 <ul className="w-[200px] gap-3 p-4 md:w-[300px] md:grid-cols-1 lg:w-[400px] list-none">
-                  {object.map((item) => (
-                    <ListItem
-                      key={item.title}
-                      title={item.title}
-                      href={item.href}
-                    ></ListItem>
-                  ))}
+                  {/* Update this if you have a proper list of objects */}
+                  {/* Replace `objects` with your actual list */}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -106,11 +103,11 @@ export default function Home() {
               </NavigationMenuTrigger>
               <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none">
-                  {company.map((item) => (
+                  {companies.map((item) => (
                     <ListItem
-                      key={item.title}
-                      title={item.title}
-                      href={item.href}
+                      key={item.id}
+                      title={item.name}
+                      href="#"
                     ></ListItem>
                   ))}
                 </ul>
@@ -122,12 +119,8 @@ export default function Home() {
               </NavigationMenuTrigger>
               <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none ">
-                  {statue.map((item) => (
-                    <ListItem
-                      key={item.title}
-                      title={item.title}
-                      href={item.href}
-                    ></ListItem>
+                  {statueOptions.map((item) => (
+                    <ListItem key={item} title={item} href="#"></ListItem>
                   ))}
                 </ul>
               </NavigationMenuContent>

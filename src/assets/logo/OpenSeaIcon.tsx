@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function OpenSea() {
+export const OpenSeaIcon = () => {
   return (
     <svg
       width="30"
@@ -32,4 +30,4 @@ export default function OpenSea() {
       </defs>
     </svg>
   );
-}
+};

@@ -9,7 +9,7 @@ import { AdobeIcon } from "@/assets/logo/AdobeIcon";
 import { ArcIcon } from "@/assets/logo/ArcIcon";
 import { FigmaIcon } from "@/assets/logo/FigmaIcon";
 import { SlackIcon } from "@/assets/logo/SlackIcon";
-import { OpenseaIcon } from "@/assets/logo/SlackIcon";
+import { OpenSeaIcon } from "@/assets/logo/OpenSeaIcon";
 
 export enum Statue {
   pending = "pending",
@@ -63,7 +63,7 @@ export const companies: company[] = [
   {
     id: 8,
     name: "Opensea",
-    logo: OpenseaIcon,
+    logo: OpenSeaIcon,
   },
 ];
 
@@ -80,6 +80,7 @@ export interface Deal {
   object: string;
   statue: Statue;
   company: string;
+  selected?: boolean;
 }
 
 interface DealStore {

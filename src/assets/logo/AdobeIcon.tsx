@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AdobeIcon() {
+export const AdobeIcon = () => {
   return (
     <svg
       width="30"
@@ -32,4 +32,4 @@ export default function AdobeIcon() {
       </defs>
     </svg>
   );
-}
+};

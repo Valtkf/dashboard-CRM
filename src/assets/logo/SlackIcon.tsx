@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SlackIcon() {
+export const SlackIcon = () => {
   return (
     <svg
       width="30"
@@ -32,4 +32,4 @@ export default function SlackIcon() {
       </defs>
     </svg>
   );
-}
+};
