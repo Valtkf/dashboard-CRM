@@ -11,11 +11,13 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 // Composant bouton
 const Button: React.FC<ButtonProps> = ({ variant, children, ...props }) => {
-  const baseClasses = "px-4 py-2 rounded transition-colors duration-200";
+  const baseClasses = "px-4 py-2 transition-colors duration-200";
   const variantClasses = {
-    link: "text-stone-400 hover:text-slate-700 focus:text-slate-700 focus:underline focus:underline-offset-[14px] active:underline active:underline-offset-[14px]",
-    primary: "bg-blue-500 text-white hover:bg-blue-600 focus:bg-blue-600",
-    secondary: "bg-gray-500 text-white hover:bg-gray-600 focus:bg-gray-600",
+    link: "text-stone-400 hover:text-slate-700 focus:text-black focus:underline focus:underline-offset-[14px] active:underline active:underline-offset-[14px]",
+    primary:
+      "text-stone-400 hover:text-slate-700 focus:text-black focus:underline focus:underline-offset-[14px] active:underline active:underline-offset-[14px]",
+    secondary:
+      "text-stone-400 hover:text-slate-700 focus:text-black focus:underline focus:underline-offset-[14px] active:underline active:underline-offset-[14px]",
   };
 
   const classNames = `${baseClasses} ${variantClasses[variant]}`;
