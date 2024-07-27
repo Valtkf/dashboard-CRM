@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
-import { StripeIcon } from "@/assets/icons/logo/StripeIcon";
+import { StripeIcon } from "@/assets/logo/StripeIcon";
 
-import { GithubIcon } from "@/assets/icons/logo/GithubIcon";
+import { GithubIcon } from "@/assets/logo/GithubIcon";
 import { AmazonIcon } from "@/assets/logo/AmazonIcon";
-import { SteamIcon } from "@/assets/icons/logo/SteamIcon";
-import { AdobeIcon } from "@/assets/icons/logo/AdobeIcon";
-import { ArcIcon } from "@/assets/icons/logo/ArcIcon";
-import { FigmaIcon } from "@/assets/icons/logo/FigmaIcon";
-import { SlackIcon } from "@/assets/icons/logo/SlackIcon";
-import { OpenseaIcon } from "@/assets/icons/logo/OpenseaIcon";
+import { SteamIcon } from "@/assets/logo/SteamIcon";
+import { AdobeIcon } from "@/assets/logo/AdobeIcon";
+import { ArcIcon } from "@/assets/logo/ArcIcon";
+import { FigmaIcon } from "@/assets/logo/FigmaIcon";
+import { SlackIcon } from "@/assets/logo/SlackIcon";
+import { OpenseaIcon } from "@/assets/logo/SlackIcon";
 
 export enum Statue {
   pending = "pending",
