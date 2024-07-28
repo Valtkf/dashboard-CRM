@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowDown } from "lucide-react";
-import { companies, Deal, Statue } from "@/app/data";
+import { companies, Deal, Statue } from "../payments/data";
 import Button from "@/components/ui/button";
 
 // Exporter le type Deal comme Payment si nécessaire
@@ -116,19 +116,19 @@ export function createColumns(
         let colorClass = "";
         let statueFormatted = "";
         switch (statue) {
-          case Statue.pending:
+          case Statue.Pending:
             colorClass = "bg-[#ECB30A]";
             statueFormatted = "Pending";
             break;
-          case Statue.cancelled:
+          case Statue.Cancelled:
             colorClass = "bg-[#EC0A0A]";
             statueFormatted = "Cancelled";
             break;
-          case Statue.ongoing:
+          case Statue.Ongoing:
             colorClass = "bg-[#2AD730]";
             statueFormatted = "Ongoing";
             break;
-          case Statue.waiting:
+          case Statue.Waiting:
             colorClass = "bg-[#960AEC]";
             statueFormatted = "Waiting for confirmation";
             break;

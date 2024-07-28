@@ -12,10 +12,9 @@ import {
   NavigationMenu,
 } from "@radix-ui/react-navigation-menu";
 
-import { companies, Statue } from "./data";
+import { companies, generatePaymentsData, Statue } from "./payments/data";
 import { DataTable } from "./payments/data-table";
 import { createColumns, Payment } from "./payments/columns";
-import { generatePaymentsData } from "../utils/dataGenerator";
 
 export default function Home() {
   const [data, setData] = useState<Payment[]>([]);
@@ -70,9 +69,9 @@ export default function Home() {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                     />
                   </svg>
