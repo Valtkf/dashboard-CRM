@@ -19,8 +19,9 @@ export enum Statue {
 }
 
 export const objects = [
-  { id: 1, title: "Product Design : Payment" },
-  { id: 2, title: "App Redesign : Onboard" },
+  { id: 0, title: "Product Design : Payment" },
+  { id: 1, title: "App Redesign : Onboard" },
+  { id: 2, title: "Pitch Deck B2B" },
   // Ajoutez d'autres objets si nécessaire
 ];
 
@@ -39,7 +40,7 @@ export const companies = [
 export interface Company {
   id: number;
   name: string;
-  logo?: () => JSX.Element; // logo is optional
+  logo: () => JSX.Element; // logo is optional
 }
 
 export interface Deal {
@@ -53,8 +54,6 @@ export interface Deal {
   selected?: boolean;
 }
 
-import { Payment } from "./columns";
-
 // Helper function to get the object title based on an identifier
 function getObjectTitle(identifier: string) {
   const foundObject = objects.find((obj) => obj.title.includes(identifier));
@@ -62,7 +61,7 @@ function getObjectTitle(identifier: string) {
 }
 
 // Function to generate the payment data
-export async function generatePaymentsData(): Promise<Payment[]> {
+export async function generatePaymentsData(): Promise<Deal[]> {
   return [
     {
       id: "728ed52f",

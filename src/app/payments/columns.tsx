@@ -1,5 +1,3 @@
-// columns.tsx
-
 import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -9,6 +7,12 @@ import Button from "@/components/ui/button";
 
 // Exporter le type Deal comme Payment si nécessaire
 export type Payment = Deal;
+
+// Fonction pour obtenir le logo de l'entreprise
+function getCompanyLogo(companyName: string) {
+  const company = companies.find((c) => c.name === companyName);
+  return company ? company.logo : null;
+}
 
 // Fonction pour créer des colonnes dynamiquement
 export function createColumns(
@@ -93,12 +97,10 @@ export function createColumns(
       ),
       cell: ({ row }) => {
         const companyName = row.original.company;
-        const companyLogo = companies
-          .find((company) => company.name === companyName)
-          ?.logo();
+        const CompanyLogo = getCompanyLogo(companyName);
         return (
           <div className="flex text-[#344054] font-medium text-[14px] gap-[12px] lg:px-[24px] py-[12px] items-center">
-            <span>{companyLogo}</span> <span>{companyName}</span>
+            {CompanyLogo && <CompanyLogo />} <span>{companyName}</span>
           </div>
         );
       },
