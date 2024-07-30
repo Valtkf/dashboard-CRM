@@ -8,7 +8,6 @@ export const AdobeIcon = () => {
       viewBox="0 0 30 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
     >
       <rect width="30" height="30" rx="15" fill="url(#pattern0_3_8829)" />
       <defs>
@@ -33,3 +32,5 @@ export const AdobeIcon = () => {
     </svg>
   );
 };
+
+export default AdobeIcon;

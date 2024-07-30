@@ -37,10 +37,12 @@ export const companies = [
   { id: 8, name: "Opensea", logo: OpenSeaIcon },
 ];
 
+console.log("Companies Data:", companies);
+
 export interface Company {
   id: number;
   name: string;
-  logo: () => JSX.Element; // logo is optional
+  logo: React.ComponentType; // logo is optional
 }
 
 export interface Deal {

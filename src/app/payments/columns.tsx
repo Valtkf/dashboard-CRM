@@ -4,14 +4,18 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowDown } from "lucide-react";
 import { companies, Deal, Statue } from "../payments/data";
 import Button from "@/components/ui/button";
+import DefaultLogo from "@/assets/logo/DefaultLogo";
+import { companyLogos } from "@/utils/companyLogos";
 
 // Exporter le type Deal comme Payment si nécessaire
 export type Payment = Deal;
 
 // Fonction pour obtenir le logo de l'entreprise
-function getCompanyLogo(companyName: string) {
-  const company = companies.find((c) => c.name === companyName);
-  return company ? company.logo : null;
+function getCompanyLogo(companyName: string): React.ComponentType {
+  // console.log(`Fetching logo for: ${companyName}`);
+  const logo = companyLogos[companyName] || DefaultLogo;
+  // console.log(`Logo found: ${logo}`);
+  return logo;
 }
 
 // Fonction pour créer des colonnes dynamiquement
@@ -39,7 +43,10 @@ export function createColumns(
         <div className="hidden lg:flex gap-[12px] lg:px-[24px] py-[12px]">
           <Checkbox
             checked={row.getIsSelected()}
-            onCheckedChange={(value) => row.toggleSelected(!!value)}
+            onCheckedChange={(value) => {
+              row.toggleSelected(!!value);
+              handleAddChange(row.original.id, !!value);
+            }}
             aria-label="Select row"
           />
         </div>
@@ -97,7 +104,9 @@ export function createColumns(
       ),
       cell: ({ row }) => {
         const companyName = row.original.company;
+        console.log(`Fetching logo for: ${companyName}`);
         const CompanyLogo = getCompanyLogo(companyName);
+
         return (
           <div className="flex text-[#344054] font-medium text-[14px] gap-[12px] lg:px-[24px] py-[12px] items-center">
             {CompanyLogo && <CompanyLogo />} <span>{companyName}</span>

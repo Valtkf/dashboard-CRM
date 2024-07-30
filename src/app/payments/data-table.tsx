@@ -16,8 +16,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { companies, useDealStore } from "./data";
-
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];

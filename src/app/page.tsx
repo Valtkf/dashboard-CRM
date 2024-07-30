@@ -39,6 +39,8 @@ export default function Home() {
 
   const statueOptions = Object.values(Statue); // Convert Enum to Array
 
+  console.log("Companies:", companies); // Vérifier les données de companies
+
   return (
     <main className="flex min-h-screen bg-slate-100 shadow-inner pr-4 pb-4">
       <div className="flex justify-start border-2 border-blue-500 w-1/3 h-screen mt-8"></div>
@@ -89,7 +91,7 @@ export default function Home() {
               <NavigationMenuTrigger className="h-8 border-[1px] border-stone-400 px-4 py-2 text-slate-700">
                 Object
               </NavigationMenuTrigger>
-              <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
+              <NavigationMenuContent className="absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
                 <ul className="w-[200px] gap-3 p-4 md:w-[300px] md:grid-cols-1 lg:w-[400px] list-none">
                   {/* Update this if you have a proper list of objects */}
                   {/* Replace `objects` with your actual list */}
@@ -100,14 +102,15 @@ export default function Home() {
               <NavigationMenuTrigger className="h-8 border-[1px] border-stone-400 px-4 py-2 text-slate-700">
                 Company
               </NavigationMenuTrigger>
-              <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
+              <NavigationMenuContent className="absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none">
                   {companies.map((item) => (
                     <ListItem
                       key={item.id}
                       title={item.name}
+                      logo={item.logo}
                       href="#"
-                    ></ListItem>
+                    />
                   ))}
                 </ul>
               </NavigationMenuContent>
@@ -116,10 +119,10 @@ export default function Home() {
               <NavigationMenuTrigger className="h-8 border-[1px] border-stone-400 px-4 py-2 text-slate-700">
                 Statue
               </NavigationMenuTrigger>
-              <NavigationMenuContent className=" absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
+              <NavigationMenuContent className="absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none ">
                   {statueOptions.map((item) => (
-                    <ListItem key={item} title={item} href="#"></ListItem>
+                    <ListItem key={item} title={item} href="#" />
                   ))}
                 </ul>
               </NavigationMenuContent>
