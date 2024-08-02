@@ -1,6 +1,6 @@
 import { ArcIcon } from "./ArcIcon";
 
-export { AdobeIcon } from "./AdobeIcon";
+export { AdobeIcon } from "@/assets/logo/AdobeIcon";
 export { AmazonIcon } from "./AmazonIcon";
 export { ArcIcon } from "./ArcIcon";
 export { FigmaIcon } from "./FigmaIcon";

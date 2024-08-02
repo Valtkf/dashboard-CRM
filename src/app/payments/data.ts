@@ -46,14 +46,17 @@ export interface Company {
 }
 
 export interface Deal {
-  id: string;
-  add: Date;
-  amount: number;
+  id: number;
   object: string;
-  statue: Statue;
   company: string;
-  date?: string;
-  selected?: boolean;
+  date: string;
+  status:
+    | "Pending"
+    | "Cancelled"
+    | "Ongoing"
+    | "Wainting for Confirmation"
+    | "Completed";
+  amount: string;
 }
 
 // Helper function to get the object title based on an identifier
@@ -93,84 +96,86 @@ interface DealStore {
   removeDeals: (indexes: number[]) => void;
 }
 
-export const useDealStore = create<DealStore>()((set) => ({
-  deals: [
-    {
-      id: "728ed52f",
-      add: new Date("2024-01-24"),
-      amount: 7800,
-      object: "Product Design : Payme...",
-      statue: Statue.Pending,
-      company: companies[0].name,
-    },
-    {
-      id: "489e1d42",
-      add: new Date("2024-01-24"),
-      amount: 12800,
-      object: "App Redesign : Onboar...",
-      statue: Statue.Cancelled,
-      company: companies[1].name,
-    },
-    {
-      id: "2f9e1d42",
-      add: new Date("2023-12-23"),
-      amount: 14000,
-      object: "Pitch Deck B2B",
-      statue: Statue.Ongoing,
-      company: companies[2].name,
-    },
-    {
-      id: "2fr6671d42",
-      add: new Date("2023-10-23"),
-      amount: 2000,
-      object: "Mobile App, UX Audit",
-      statue: Statue.Waiting,
-      company: companies[3].name,
-    },
-    {
-      id: "1fr2271d42",
-      add: new Date("2023-10-23"),
-      amount: 5500,
-      object: "Splash Screen Illustrator",
-      statue: Statue.Completed,
-      company: companies[4].name,
-    },
-    {
-      id: "99fr2271d42",
-      add: new Date("2023-10-23"),
-      amount: 14500,
-      object: "Features Add",
-      statue: Statue.Pending,
-      company: companies[5].name,
-    },
-    {
-      id: "6fr2zz1221d42",
-      add: new Date("2023-09-23"),
-      amount: 21500,
-      object: "Brand Guidelines",
-      statue: Statue.Completed,
-      company: companies[6].name,
-    },
-    {
-      id: "4er2444221d42",
-      add: new Date("2023-09-23"),
-      amount: 1900,
-      object: "New messages UX",
-      statue: Statue.Ongoing,
-      company: companies[7].name,
-    },
-    {
-      id: "77r2zaa21d42",
-      add: new Date("2023-09-23"),
-      amount: 2300,
-      object: "Landing Page",
-      statue: Statue.Pending,
-      company: companies[8].name,
-    },
-  ],
-  addDeal: (newDeal) => set((state) => ({ deals: [...state.deals, newDeal] })),
-  removeDeals: (indexes) =>
-    set((state) => ({
-      deals: state.deals.filter((_, index) => !indexes.includes(index)),
-    })),
-}));
+export const deals: Deal[] = [
+  {
+    id: 1,
+    date: "Jan. 24",
+    object: "Product Design : Payment",
+    amount: "7.800 $USD",
+    status: "Pending",
+    company: "Stripe Icon.",
+    companyIcon: "/logo/StripeIcon",
+  },
+  {
+    id: 2,
+    date: "Jan. 24",
+    object: "App Redesign : Onboarding",
+    amount: "12.800 $USD",
+    status: "Cancelled",
+    company: "Github Corp.",
+    companyIcon: "/logo/GithubIcon",
+  },
+  {
+    id: 3,
+    date: "Dec. 23",
+    object: "Piych Deck B2B",
+    amount: "14.000 $USD",
+    status: "Ongoing",
+    company: "Amazon",
+    companyIcon: "/logo/AmazonIcon",
+  },
+  {
+    id: 4,
+    date: "Oct. 23",
+    object: "Mobile App, UX Audit",
+    amount: "2.000 $USD",
+    status: "Waiting for Confirmation",
+    company: "Steam",
+    companyIcon: "/logo/SteamIcon",
+  },
+  {
+    id: 5,
+    date: "Oct. 23",
+    object: "Splash Screen Illustrator",
+    amount: "5.500 $USD",
+    status: "Completed",
+    company: "Adobe Icon.",
+    companyIcon: "/logo/AdobeIcon",
+  },
+  {
+    id: 6,
+    date: "Oct. 23",
+    object: "Features Add",
+    amount: "14.500 $USD",
+    status: "Pending",
+    company: "The Browser Company",
+    companyIcon: "/logo/ArcIcon",
+  },
+  {
+    id: 7,
+    date: "Sept. 23",
+    object: "Brand Guidelines",
+    amount: "21.500 $USD",
+    status: "Completed",
+    company: "Figma",
+    companyIcon: "/logo/FigmaIcon",
+  },
+  {
+    id: 8,
+    date: "Sept. 23",
+    object: "New messages UX",
+    amount: "1.900 $USD",
+    status: "Ongoing",
+    company: "Slack",
+    companyIcon: "/logo/SlackIcon",
+  },
+  {
+    id: 9,
+    date: "Sept. 23",
+    object: "Landing page",
+    amount: "2.300 $USD",
+    status: "Pending",
+    company: "OpenSea",
+    companyIcon: "/logo/OpenSeaIcon",
+  },
+];

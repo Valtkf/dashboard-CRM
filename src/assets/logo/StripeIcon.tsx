@@ -1,6 +1,6 @@
 import React from "react";
 
-const StripeIcon = () => {
+export const StripeIcon = () => {
   return (
     <svg
       width="30"

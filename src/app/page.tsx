@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import ListItem from "@/components/ui/ListItem";
 import {
   NavigationMenuContent,
@@ -27,19 +27,19 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const handleAddChange = (id: string, value: boolean) => {
+  const handleAddChange = useCallback((id: string, value: boolean) => {
     setData((prevData) =>
       prevData.map((payment) =>
         payment.id === id ? { ...payment, selected: value } : payment
       )
     );
-  };
+  }, []);
 
-  const columns = createColumns(handleAddChange);
-
-  const statueOptions = Object.values(Statue); // Convert Enum to Array
-
-  console.log("Companies:", companies); // Vérifier les données de companies
+  const columns = useMemo(
+    () => createColumns(handleAddChange),
+    [handleAddChange]
+  );
+  const statueOptions = useMemo(() => Object.values(Statue), []);
 
   return (
     <main className="flex min-h-screen bg-slate-100 shadow-inner pr-4 pb-4">
@@ -104,11 +104,11 @@ export default function Home() {
               </NavigationMenuTrigger>
               <NavigationMenuContent className="absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
                 <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none">
-                  {companies.map((item) => (
+                  {companies.map((company) => (
                     <ListItem
-                      key={item.id}
-                      title={item.name}
-                      logo={item.logo}
+                      key={company.id}
+                      title={company.name}
+                      logo={company.logo}
                       href="#"
                     />
                   ))}
@@ -120,10 +120,10 @@ export default function Home() {
                 Statue
               </NavigationMenuTrigger>
               <NavigationMenuContent className="absolute left-0 top-full mt-2 w-full bg-white border border-stone-300 rounded shadow-lg">
-                <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-1 lg:w-[500px] list-none ">
-                  {statueOptions.map((item) => (
-                    <ListItem key={item} title={item} href="#" />
-                  ))}
+                <ul>
+                  <ListItem title="Item 1" href="#item1" />
+                  <ListItem title="Item 2" href="#item2" />
+                  <ListItem title="Item 3" href="#item3" />
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
