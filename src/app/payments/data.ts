@@ -50,11 +50,12 @@ export interface Deal {
   object: string;
   company: string;
   date: string;
+  companyIcon: string;
   status:
     | "Pending"
     | "Cancelled"
     | "Ongoing"
-    | "Wainting for Confirmation"
+    | "Waiting for Confirmation"
     | "Completed";
   amount: string;
 }
@@ -66,29 +67,6 @@ function getObjectTitle(identifier: string) {
 }
 
 // Function to generate the payment data
-export async function generatePaymentsData(): Promise<Deal[]> {
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      statue: Statue.Pending,
-      company: "Amazon",
-      object: getObjectTitle("Product Design : Payment"),
-      add: new Date(), // Remplacez par la date correcte si nécessaire
-      date: "Dec.23",
-    },
-    {
-      id: "729ed53f",
-      amount: 200,
-      statue: Statue.Success,
-      company: "Adobe LLC.",
-      object: getObjectTitle("App Redesign : Onboard"),
-      add: new Date(), // Remplacez par la date correcte si nécessaire
-      date: "Oct.23",
-    },
-    // Ajoutez plus d'entrées si nécessaire...
-  ];
-}
 
 interface DealStore {
   deals: Deal[];
