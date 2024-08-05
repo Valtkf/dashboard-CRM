@@ -15,6 +15,7 @@ import {
 import { companies, generatePaymentsData, Statue } from "./payments/data";
 import { DataTable } from "./payments/data-table";
 import { createColumns, Payment } from "./payments/columns";
+import Table from "./Table";
 
 export default function Home() {
   const [data, setData] = useState<Payment[]>([]);
@@ -35,10 +36,6 @@ export default function Home() {
     );
   }, []);
 
-  const columns = useMemo(
-    () => createColumns(handleAddChange),
-    [handleAddChange]
-  );
   const statueOptions = useMemo(() => Object.values(Statue), []);
 
   return (
@@ -129,9 +126,7 @@ export default function Home() {
             </NavigationMenuItem>
           </NavigationMenu>
         </div>
-        <div className="m-4 border-2 border-pink-500 w-auto h-[560px]">
-          <DataTable columns={columns} data={data} />
-        </div>
+        <Table />
       </div>
     </main>
   );

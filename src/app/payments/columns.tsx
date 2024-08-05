@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowDown } from "lucide-react";
-import { companies, Deal, Statue } from "../payments/data";
 import Button from "@/components/ui/button";
 import DefaultLogo from "@/assets/logo/DefaultLogo";
 import Image from "next/image";
